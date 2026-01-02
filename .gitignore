@@ -1,0 +1,28 @@
+# .gitignore for Pester Testing Playground
+
+# Pester test results and coverage
+TestResults.xml
+Coverage*.xml
+*.coverage.xml
+
+# PowerShell module cache
+PSModuleCache/
+
+# Visual Studio Code
+.vscode/
+*.code-workspace
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# macOS
+.DS_Store
+
+# Test artifacts
+TestDrive/
+*.bak
+*.tmp
+
+# Logs
+*.log
