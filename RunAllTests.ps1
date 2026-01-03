@@ -66,7 +66,7 @@ $levels = @(
     @{ Number = 1; Path = '01-Basic'; Name = 'Basic Testing' }
     @{ Number = 2; Path = '02-Intermediate'; Name = 'Intermediate Testing (TestCases)' }
     @{ Number = 3; Path = '03-Advanced'; Name = 'Advanced Testing (Mocking)' }
-    @{ Number = 4; Path = '04-Expert'; Name = 'Expert Testing (File I/O)' }
+    @{ Number = 4; Path = '04-Expert'; Name = 'Expert Testing (File I/O & DateTime)' }
 )
 
 # Filter by level if specified

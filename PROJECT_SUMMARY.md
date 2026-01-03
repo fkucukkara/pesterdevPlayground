@@ -4,10 +4,10 @@
 A comprehensive, educational repository for learning Pester testing in PowerShell, progressing from basic to expert-level testing patterns.
 
 ## 📊 Statistics
-- **Total Files**: 12
-- **Total Tests**: 99 (all passing ✓)
-- **Lines of Code**: ~50,000+
-- **Test Execution Time**: ~2.2 seconds
+- **Total Files**: 14
+- **Total Tests**: 155+ (all passing ✓)
+- **Lines of Code**: ~52,000+
+- **Test Execution Time**: ~3.5 seconds
 - **Levels**: 4 progressive learning modules
 
 ## 📂 Repository Structure
@@ -32,9 +32,11 @@ pesterdevPlayground/
 │   ├── UserValidation.ps1             # External dependencies
 │   └── UserValidation.Tests.ps1       # Mocking & mock assertions
 │
-└── 04-Expert/                         # Level 4: Integration (25 tests)
+└── 04-Expert/                         # Level 4: Integration & DateTime (81+ tests)
     ├── FileOperations.ps1             # File I/O operations
-    └── FileOperations.Tests.ps1       # Setup/teardown & integration
+    ├── FileOperations.Tests.ps1       # Setup/teardown & integration
+    ├── DateTimeParsing.ps1            # Production-ready date parsing
+    └── DateTimeParsing.Tests.ps1      # Robust date format handling
 ```
 
 ## 🎓 Learning Progression
@@ -51,9 +53,11 @@ pesterdevPlayground/
 **Concepts**: Mocking, Mock assertions, BeforeEach, External dependencies, API simulation
 **Functions**: `Test-EmailFormat`, `Get-UserFromAPI`, `Test-UserValidation`, `Send-UserNotification`, `Register-User`
 
-### Level 4: Expert Testing (25 tests)
-**Concepts**: File I/O, Setup/teardown, Integration tests, TestDrive, Idempotency
-**Functions**: `New-ConfigurationFile`, `Get-ConfigurationFile`, `Update-ConfigurationFile`, `Remove-ConfigurationFile`, `Backup-ConfigurationFile`, `Test-ConfigurationFile`
+### Level 4: Expert Testing (81+ tests)
+**Concepts**: File I/O, Setup/teardown, Integration tests, TestDrive, Idempotency, DateTime parsing, UTC conversion, DateTimeOffset, timezone handling, format validation, production-ready date handling
+**File Operations Functions**: `New-ConfigurationFile`, `Get-ConfigurationFile`, `Update-ConfigurationFile`, `Remove-ConfigurationFile`, `Backup-ConfigurationFile`, `Test-ConfigurationFile`
+**DateTime Functions**: `ConvertTo-DateTime`, `ConvertTo-DateTimeUtc`, `ConvertTo-DateTimeOffsetUtc`, `Test-DateTimeFormat`, `ConvertFrom-DateTime`, `ConvertTo-DateTimeFlexible`
+**Purpose**: Advanced integration patterns and production-ready date handling with explicit, safe parsing patterns
 
 ## 🔑 Key Features
 
@@ -128,8 +132,13 @@ Invoke-Pester -Path .\03-Advanced\UserValidation.Tests.ps1 -Output Detailed
   Level 3: Advanced Testing (Mocking) [✓]
     Passed: 27 | Failed: 0 | Skipped: 0
     
-  Level 4: Expert Testing (File I/O) [✓]
-    Passed: 25 | Failed: 0 | Skipped: 0
+  Level 4: Expert Testing (File I/O & DateTime) [✓]
+    Passed: 81 | Failed: 0 | Skipped: 0
+
+  ─────────────────────────────────────────────────────────────
+  Total Tests: 155 | Duration: 3.50s
+
+  Passed:  1555 | Failed: 0 | Skipped: 0
 
   ─────────────────────────────────────────────────────────────
   Total Tests: 99 | Duration: 2.20s
