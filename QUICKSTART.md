@@ -84,7 +84,7 @@ Work through the levels in order:
 1. **Level 1** - `01-Basic\` - Learn basic assertions
 2. **Level 2** - `02-Intermediate\` - Learn parameterized tests
 3. **Level 3** - `03-Advanced\` - Learn mocking
-4. **Level 4** - `04-Expert\` - Learn integration tests
+4. **Level 4** - `04-Expert\` - Learn integration tests and production-ready DateTime parsing
 
 ## 🎯 Quick Reference
 
@@ -99,6 +99,28 @@ Invoke-Pester -Path .\04-Expert\ -Output Detailed
 ### Run a single test file:
 ```powershell
 Invoke-Pester -Path .\02-Intermediate\Calculator.Tests.ps1 -Output Detailed
+Invoke-Pester -Path .\04-Expert\DateTimeParsing.Tests.ps1 -Output Detailed
+```
+
+### Quick DateTime Parsing Examples:
+```powershell
+# Load the DateTime module
+. .\04-Expert\DateTimeParsing.ps1
+
+# Parse with explicit format
+ConvertTo-DateTime -DateString "2026-01-03" -Format "yyyy-MM-dd"
+
+# Convert to UTC
+ConvertTo-DateTimeUtc -DateString "2026-01-03T14:30:00" -Format "yyyy-MM-ddTHH:mm:ss"
+
+# Parse with timezone offset
+ConvertTo-DateTimeOffsetUtc -DateString "2026-01-03T14:30:00+05:00"
+
+# Flexible parsing (tries multiple formats)
+ConvertTo-DateTimeFlexible -DateString "01/03/2026"
+
+# Validate format before parsing
+Test-DateTimeFormat -DateString "2026-01-03" -Format "yyyy-MM-dd"
 ```
 
 ### Common Pester Switches:

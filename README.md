@@ -42,9 +42,11 @@ pesterdevPlayground/
 │   ├── UserValidation.ps1             # Functions with external calls
 │   └── UserValidation.Tests.ps1       # Mocking and mock assertions
 │
-├── 04-Expert/                         # Level 4: Integration & File I/O
+├── 04-Expert/                         # Level 4: Integration, File I/O & DateTime
 │   ├── FileOperations.ps1             # Configuration file management
-│   └── FileOperations.Tests.ps1       # Setup/teardown and integration tests
+│   ├── FileOperations.Tests.ps1       # Setup/teardown and integration tests
+│   ├── DateTimeParsing.ps1            # Robust date parsing functions
+│   └── DateTimeParsing.Tests.ps1      # Comprehensive date format testing
 │
 └── README.md                          # This file
 ```
@@ -165,6 +167,12 @@ Invoke-Pester -Path .\03-Advanced\UserValidation.Tests.ps1 -Output Detailed
 - Integration testing with real I/O
 - Idempotency testing
 - Complete workflow testing
+- **Explicit format DateTime parsing** to prevent ambiguous date interpretation
+- **UTC conversion** and timezone handling
+- **DateTimeOffset** for timezone-aware operations
+- **Format validation** before parsing
+- **Flexible format detection** for multiple date formats
+- Production-ready patterns addressing real-world date format issues
 
 **What You'll Learn:**
 - How to safely test file operations
@@ -172,10 +180,38 @@ Invoke-Pester -Path .\03-Advanced\UserValidation.Tests.ps1 -Output Detailed
 - Integration test patterns
 - Testing concurrent operations
 - End-to-end workflow validation
+- How to safely parse date strings with explicit formats
+- Converting between local time, UTC, and DateTimeOffset
+- Preventing production issues with ambiguous date parsing
+- Testing leap years, end-of-year dates, and edge cases
+- Handling international date formats (US vs European)
+- Batch processing dates via pipeline
+- Real-world integration scenarios (API timestamps, log parsing, database storage)
+
+**File Operations Functions:**
+- `New-ConfigurationFile` - Create configuration files
+- `Get-ConfigurationFile` - Read configuration files
+- `Update-ConfigurationFile` - Modify configuration files
+- `Remove-ConfigurationFile` - Delete configuration files
+- `Backup-ConfigurationFile` - Backup configuration files
+- `Test-ConfigurationFile` - Validate configuration files
+
+**DateTime Parsing Functions:**
+- `ConvertTo-DateTime` - Parse with explicit format specification
+- `ConvertTo-DateTimeUtc` - Parse and convert to UTC
+- `ConvertTo-DateTimeOffsetUtc` - Parse with timezone offset preservation
+- `Test-DateTimeFormat` - Validate date format before parsing
+- `ConvertFrom-DateTime` - Convert DateTime to ISO 8601 string
+- `ConvertTo-DateTimeFlexible` - Automatic format detection from common formats
 
 **Run Tests:**
 ```powershell
+# Run all expert level tests (file operations + datetime)
+Invoke-Pester -Path .\04-Expert\ -Output Detailed
+
+# Run specific test files
 Invoke-Pester -Path .\04-Expert\FileOperations.Tests.ps1 -Output Detailed
+Invoke-Pester -Path .\04-Expert\DateTimeParsing.Tests.ps1 -Output Detailed
 ```
 
 ## ▶️ Running Tests
@@ -200,7 +236,7 @@ Invoke-Pester -Path .\02-Intermediate\ -Output Detailed
 # Advanced tests
 Invoke-Pester -Path .\03-Advanced\ -Output Detailed
 
-# Expert tests
+# Expert tests (includes both file operations and datetime parsing)
 Invoke-Pester -Path .\04-Expert\ -Output Detailed
 ```
 
@@ -208,6 +244,8 @@ Invoke-Pester -Path .\04-Expert\ -Output Detailed
 
 ```powershell
 Invoke-Pester -Path .\02-Intermediate\Calculator.Tests.ps1 -Output Detailed
+Invoke-Pester -Path .\04-Expert\FileOperations.Tests.ps1 -Output Detailed
+Invoke-Pester -Path .\04-Expert\DateTimeParsing.Tests.ps1 -Output Detailed
 ```
 
 ### Run Tests with Code Coverage
