@@ -16,6 +16,11 @@
 .EXAMPLE
     Get-Greeting
     Returns: "Hello, World!"
+
+.EXAMPLE
+    "Alice","Bob","Charlie" | Get-Greeting
+    Returns: "Hello, Alice!", "Hello, Bob!", "Hello, Charlie!"
+    Note: Without 'process' block, only "Hello, Charlie!" would be returned!
 #>
 function Get-Greeting {
     [CmdletBinding()]
@@ -34,3 +39,23 @@ function Get-Greeting {
         return "Hello, $Name!"
     }
 }
+
+<#
+DEMONSTRATION: Why 'process' block matters for pipeline input
+
+Without process block (BAD for pipeline):
+    function Greet-Bad {
+        param([Parameter(ValueFromPipeline=$true)][string]$Name)
+        return "Hi, $Name!"
+    }
+    "A","B","C" | Greet-Bad
+    # Result: "Hi, C!"  (only last value!)
+
+With process block (GOOD for pipeline):
+    function Greet-Good {
+        param([Parameter(ValueFromPipeline=$true)][string]$Name)
+        process { return "Hi, $Name!" }
+    }
+    "A","B","C" | Greet-Good
+    # Result: "Hi, A!", "Hi, B!", "Hi, C!"  (all values!)
+#>
