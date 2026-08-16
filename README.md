@@ -1,8 +1,12 @@
 # Pester Testing Playground
 
-Welcome to the **Pester Testing Playground**! This repository provides a comprehensive, hands-on introduction to [Pester](https://pester.dev/), the testing and mocking framework for PowerShell. Whether you're new to testing or looking to improve your skills, this repo takes you from basic to expert-level testing patterns.
+Welcome to the **Pester Testing Playground**! This repository provides a
+comprehensive, hands-on introduction to
+[Pester](https://pester.dev/), the testing and mocking framework for
+PowerShell. Whether you're new to testing or looking to improve your skills,
+this repo takes you from basic to expert-level testing patterns.
 
-## 📚 Table of Contents
+## Table of Contents
 
 - [What is Pester?](#what-is-pester)
 - [Repository Structure](#repository-structure)
@@ -12,22 +16,26 @@ Welcome to the **Pester Testing Playground**! This repository provides a compreh
 - [Best Practices](#best-practices)
 - [Additional Resources](#additional-resources)
 
-## 🎯 What is Pester?
+## What is Pester?
 
-Pester is a **testing and mocking framework** for PowerShell that enables you to:
-- Write **unit tests** and **integration tests** for your PowerShell code
-- **Mock** external dependencies to isolate code under test
-- Generate **code coverage** reports
-- Integrate tests into **CI/CD pipelines**
-- Validate configurations and deployments
+Pester is a **testing and mocking framework** for PowerShell that enables you
+to:
 
-Pester follows a simple file naming convention (`*.Tests.ps1`) and uses an intuitive DSL with keywords like `Describe`, `Context`, `It`, `Should`, and `Mock`.
+- Write **unit tests** and **integration tests** for your PowerShell code.
+- **Mock** external dependencies to isolate code under test.
+- Generate **code coverage** reports.
+- Integrate tests into **CI/CD pipelines**.
+- Validate configurations and deployments.
 
-## 📁 Repository Structure
+Pester follows a simple file naming convention (`*.Tests.ps1`) and uses an
+intuitive DSL with keywords like `Describe`, `Context`, `It`, `Should`, and
+`Mock`.
+
+## Repository Structure
 
 The repository is organized into progressive learning levels:
 
-```
+```text
 pesterdevPlayground/
 │
 ├── 01-Basic/                          # Level 1: Fundamentals
@@ -42,7 +50,8 @@ pesterdevPlayground/
 │   ├── UserValidation.ps1             # Functions with external calls
 │   └── UserValidation.Tests.ps1       # Mocking and mock assertions
 │
-├── 04-Expert/                         # Level 4: Integration, File I/O & DateTime
+├── 04-Expert/                         # Level 4: Integration, File I/O
+│   │   # & DateTime
 │   ├── FileOperations.ps1             # Configuration file management
 │   ├── FileOperations.Tests.ps1       # Setup/teardown and integration tests
 │   ├── DateTimeParsing.ps1            # Robust date parsing functions
@@ -51,7 +60,7 @@ pesterdevPlayground/
 └── README.md                          # This file
 ```
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -72,7 +81,7 @@ Import-Module Pester -PassThru
 
 You should see output similar to:
 
-```
+```text
 ModuleType Version    Name
 ---------- -------    ----
 Script     5.x.x      Pester
@@ -85,126 +94,142 @@ git clone https://github.com/yourusername/pesterdevPlayground.git
 cd pesterdevPlayground
 ```
 
-## 📖 Learning Path
+## Learning Path
 
 Follow these levels in order to progressively build your Pester skills:
 
-### **Level 1: Basic Testing** (`01-Basic/`)
+### Level 1: Basic Testing (`01-Basic/`)
 
 **Concepts Covered:**
-- `BeforeAll` block for setup
-- `Describe` and `Context` for organizing tests
-- `It` blocks for individual test cases
-- Basic `Should` assertions (`-Be`, `-BeLike`, `-Match`)
-- Testing default parameters and error conditions
-- Pipeline support testing
+
+- `BeforeAll` block for setup.
+- `Describe` and `Context` for organizing tests.
+- `It` blocks for individual test cases.
+- Basic `Should` assertions (`-Be`, `-BeLike`, `-Match`).
+- Testing default parameters and error conditions.
+- Pipeline support testing.
 
 **What You'll Learn:**
-- How to structure a basic test file
-- Dot-sourcing functions to test
-- Writing clear, descriptive test cases
-- Testing both happy paths and error scenarios
+
+- How to structure a basic test file.
+- Dot-sourcing functions to test.
+- Writing clear, descriptive test cases.
+- Testing both happy paths and error scenarios.
 
 **Run Tests:**
+
 ```powershell
 Invoke-Pester -Path .\01-Basic\Get-Greeting.Tests.ps1 -Output Detailed
 ```
 
 ---
 
-### **Level 2: Intermediate Testing** (`02-Intermediate/`)
+### Level 2: Intermediate Testing (`02-Intermediate/`)
 
 **Concepts Covered:**
-- **TestCases** for parameterized testing
-- Data-driven tests with multiple inputs
-- Testing mathematical operations
-- Edge case validation
-- Integration tests combining multiple functions
+
+- **TestCases** for parameterized testing.
+- Data-driven tests with multiple inputs.
+- Testing mathematical operations.
+- Edge case validation.
+- Integration tests combining multiple functions.
 
 **What You'll Learn:**
-- How to reduce test duplication with TestCases
-- Testing multiple scenarios efficiently
-- Organizing related test cases
-- Validating complex calculations
+
+- How to reduce test duplication with TestCases.
+- Testing multiple scenarios efficiently.
+- Organizing related test cases.
+- Validating complex calculations.
 
 **Run Tests:**
+
 ```powershell
 Invoke-Pester -Path .\02-Intermediate\Calculator.Tests.ps1 -Output Detailed
 ```
 
 ---
 
-### **Level 3: Advanced Testing** (`03-Advanced/`)
+### Level 3: Advanced Testing (`03-Advanced/`)
 
 **Concepts Covered:**
-- **Mocking** functions and external dependencies
-- **Mock assertions** with `Should -Invoke`
-- Parameter filters for precise mock verification
-- `BeforeEach` for per-test setup
-- Testing code with external API calls
-- Verifying call order and behavior
+
+- **Mocking** functions and external dependencies.
+- **Mock assertions** with `Should -Invoke`.
+- Parameter filters for precise mock verification.
+- `BeforeEach` for per-test setup.
+- Testing code with external API calls.
+- Verifying call order and behavior.
 
 **What You'll Learn:**
-- How to isolate code from external dependencies
-- Mocking strategies for unit testing
-- Verifying function interactions
-- Testing error handling without hitting real APIs
+
+- How to isolate code from external dependencies.
+- Mocking strategies for unit testing.
+- Verifying function interactions.
+- Testing error handling without hitting real APIs.
 
 **Run Tests:**
+
 ```powershell
 Invoke-Pester -Path .\03-Advanced\UserValidation.Tests.ps1 -Output Detailed
 ```
 
 ---
 
-### **Level 4: Expert Testing** (`04-Expert/`)
+### Level 4: Expert Testing (`04-Expert/`)
 
 **Concepts Covered:**
-- **BeforeAll/AfterAll** for test suite setup/teardown
-- **BeforeEach/AfterEach** for test-level cleanup
-- Testing file system operations
-- Using `$TestDrive` for temporary test files
-- Integration testing with real I/O
-- Idempotency testing
-- Complete workflow testing
-- **Explicit format DateTime parsing** to prevent ambiguous date interpretation
-- **UTC conversion** and timezone handling
-- **DateTimeOffset** for timezone-aware operations
-- **Format validation** before parsing
-- **Flexible format detection** for multiple date formats
-- Production-ready patterns addressing real-world date format issues
+
+- **BeforeAll/AfterAll** for test suite setup and teardown.
+- **BeforeEach/AfterEach** for test-level cleanup.
+- Testing file system operations.
+- Using `$TestDrive` for temporary test files.
+- Integration testing with real I/O.
+- Idempotency testing.
+- Complete workflow testing.
+- **Explicit format DateTime parsing** to prevent ambiguous date interpretation.
+- **UTC conversion** and timezone handling.
+- **DateTimeOffset** for timezone-aware operations.
+- **Format validation** before parsing.
+- **Flexible format detection** for multiple date formats.
+- Production-ready patterns addressing real-world date format issues.
 
 **What You'll Learn:**
-- How to safely test file operations
-- Proper test isolation and cleanup
-- Integration test patterns
-- Testing concurrent operations
-- End-to-end workflow validation
-- How to safely parse date strings with explicit formats
-- Converting between local time, UTC, and DateTimeOffset
-- Preventing production issues with ambiguous date parsing
-- Testing leap years, end-of-year dates, and edge cases
-- Handling international date formats (US vs European)
-- Batch processing dates via pipeline
-- Real-world integration scenarios (API timestamps, log parsing, database storage)
+
+- How to safely test file operations.
+- Proper test isolation and cleanup.
+- Integration test patterns.
+- Testing concurrent operations.
+- End-to-end workflow validation.
+- How to safely parse date strings with explicit formats.
+- Converting between local time, UTC, and DateTimeOffset.
+- Preventing production issues with ambiguous date parsing.
+- Testing leap years, end-of-year dates, and edge cases.
+- Handling international date formats (US vs European).
+- Batch processing dates via pipeline.
+- Real-world integration scenarios such as API timestamps,
+  log parsing, and database storage.
 
 **File Operations Functions:**
-- `New-ConfigurationFile` - Create configuration files
-- `Get-ConfigurationFile` - Read configuration files
-- `Update-ConfigurationFile` - Modify configuration files
-- `Remove-ConfigurationFile` - Delete configuration files
-- `Backup-ConfigurationFile` - Backup configuration files
-- `Test-ConfigurationFile` - Validate configuration files
+
+- `New-ConfigurationFile` - Create configuration files.
+- `Get-ConfigurationFile` - Read configuration files.
+- `Update-ConfigurationFile` - Modify configuration files.
+- `Remove-ConfigurationFile` - Delete configuration files.
+- `Backup-ConfigurationFile` - Backup configuration files.
+- `Test-ConfigurationFile` - Validate configuration files.
 
 **DateTime Parsing Functions:**
-- `ConvertTo-DateTime` - Parse with explicit format specification
-- `ConvertTo-DateTimeUtc` - Parse and convert to UTC
-- `ConvertTo-DateTimeOffsetUtc` - Parse with timezone offset preservation
-- `Test-DateTimeFormat` - Validate date format before parsing
-- `ConvertFrom-DateTime` - Convert DateTime to ISO 8601 string
-- `ConvertTo-DateTimeFlexible` - Automatic format detection from common formats
+
+- `ConvertTo-DateTime` - Parse with explicit format specification.
+- `ConvertTo-DateTimeUtc` - Parse and convert to UTC.
+- `ConvertTo-DateTimeOffsetUtc` - Parse with timezone offset preservation.
+- `Test-DateTimeFormat` - Validate date format before parsing.
+- `ConvertFrom-DateTime` - Convert DateTime to ISO 8601 string.
+- `ConvertTo-DateTimeFlexible` - Automatic format detection from common
+  formats.
 
 **Run Tests:**
+
 ```powershell
 # Run all expert level tests (file operations + datetime)
 Invoke-Pester -Path .\04-Expert\ -Output Detailed
@@ -214,7 +239,7 @@ Invoke-Pester -Path .\04-Expert\FileOperations.Tests.ps1 -Output Detailed
 Invoke-Pester -Path .\04-Expert\DateTimeParsing.Tests.ps1 -Output Detailed
 ```
 
-## ▶️ Running Tests
+## Running Tests
 
 ### Run All Tests
 
@@ -282,93 +307,106 @@ $config.TestResult.OutputPath = 'TestResults.xml'
 Invoke-Pester -Configuration $config
 ```
 
-## ✅ Best Practices
+## Best Practices
 
 Based on the Pester documentation and examples in this repo:
 
-### 1. **File Organization**
-- Place test files next to the code they test
-- Use the `*.Tests.ps1` naming convention
-- Keep functions in separate `.ps1` files
-- Use dot-sourcing in `BeforeAll` to import functions
+### 1. File Organization
 
-### 2. **Test Structure**
-- Use `Describe` for the function or module being tested
-- Use `Context` to group related scenarios
-- Use `It` for individual test cases
-- Keep test names descriptive and readable
+- Place test files next to the code they test.
+- Use the `*.Tests.ps1` naming convention.
+- Keep functions in separate `.ps1` files.
+- Use dot-sourcing in `BeforeAll` to import functions.
 
-### 3. **Setup and Teardown**
-- Use `BeforeAll` for expensive setup (runs once per block)
-- Use `BeforeEach` for per-test setup
-- Use `AfterAll` and `AfterEach` for cleanup
-- Leverage `$TestDrive` for temporary file testing
+### 2. Test Structure
 
-### 4. **Assertions**
-- Use specific assertions (`-Be`, `-BeExactly`, `-BeLike`, `-Match`)
-- Test both positive and negative cases
-- Use `Should -Throw` for error testing
-- Use parameter filters for precise expectations
+- Use `Describe` for the function or module being tested.
+- Use `Context` to group related scenarios.
+- Use `It` for individual test cases.
+- Keep test names descriptive and readable.
 
-### 5. **Mocking**
-- Mock external dependencies to isolate code
-- Use `Should -Invoke` to verify mock calls
-- Use parameter filters to verify correct arguments
-- Test both with and without mocks when appropriate
+### 3. Setup and Teardown
 
-### 6. **TestCases**
-- Use `-TestCases` to reduce duplication
-- Provide descriptive test names with placeholders
-- Include edge cases and boundary conditions
-- Keep test data close to the test
+- Use `BeforeAll` for expensive setup (runs once per block).
+- Use `BeforeEach` for per-test setup.
+- Use `AfterAll` and `AfterEach` for cleanup.
+- Leverage `$TestDrive` for temporary file testing.
 
-### 7. **Code Coverage**
-- Aim for high coverage, but focus on meaningful tests
-- Don't just test for coverage percentage
-- Cover error paths and edge cases
-- Review coverage reports to find gaps
+### 4. Assertions
 
-## 📚 Additional Resources
+- Use specific assertions (`-Be`, `-BeExactly`, `-BeLike`, `-Match`).
+- Test both positive and negative cases.
+- Use `Should -Throw` for error testing.
+- Use parameter filters for precise expectations.
+
+### 5. Mocking
+
+- Mock external dependencies to isolate code.
+- Use `Should -Invoke` to verify mock calls.
+- Use parameter filters to verify correct arguments.
+- Test both with and without mocks when appropriate.
+
+### 6. TestCases
+
+- Use `-TestCases` to reduce duplication.
+- Provide descriptive test names with placeholders.
+- Include edge cases and boundary conditions.
+- Keep test data close to the test.
+
+### 7. Code Coverage
+
+- Aim for high coverage, but focus on meaningful tests.
+- Don't just test for coverage percentage.
+- Cover error paths and edge cases.
+- Review coverage reports to find gaps.
+
+## Additional Resources
 
 ### Official Documentation
+
 - [Pester Documentation](https://pester.dev/docs/quick-start)
 - [Pester GitHub Repository](https://github.com/pester/Pester)
 - [PowerShell Gallery](https://www.powershellgallery.com/packages/Pester)
 
 ### Learning Resources
+
 - [Pester Book](https://leanpub.com/pesterbook)
 - [PowerShell Testing with Pester](https://www.pluralsight.com/courses/powershell-testing-pester)
 - [Pester Gitter Chat](https://gitter.im/pester/Pester)
 
 ### Community
+
 - [PowerShell.org Forums](https://forums.powershell.org/c/pester/)
 - [PowerShell Discord - #testing](https://discord.gg/powershell)
 - [Stack Overflow - Pester Tag](https://stackoverflow.com/questions/tagged/pester)
 
-## 🤝 Contributing
+## Contributing
 
 This is a learning repository! Feel free to:
-- Add more examples
-- Improve existing tests
-- Fix bugs or typos
-- Add documentation
-- Share your experiences
 
-## 📄 License
+- Add more examples.
+- Improve existing tests.
+- Fix bugs or typos.
+- Add documentation.
+- Share your experiences.
 
-This project is provided as-is for educational purposes. Feel free to use, modify, and share!
+## License
 
-## 🎓 Next Steps
+This project is provided as-is for educational purposes. Feel free to use,
+modify, and share!
+
+## Next Steps
 
 After completing all four levels:
 
-1. **Practice** - Write tests for your own PowerShell scripts
-2. **Integrate** - Add Pester to your CI/CD pipeline
-3. **Explore** - Learn about code coverage and test-driven development (TDD)
+1. **Practice** - Write tests for your own PowerShell scripts.
+2. **Integrate** - Add Pester to your CI/CD pipeline.
+3. **Explore** - Learn about code coverage and test-driven development (TDD).
 4. **Share** - Help others learn Pester!
 
 ---
 
 **Happy Testing!** 🎉
 
-If you found this helpful, consider starring the repository and sharing it with others learning PowerShell testing.
+If you found this helpful, consider starring the repository and sharing it
+with others learning PowerShell testing.
